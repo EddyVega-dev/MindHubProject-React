@@ -1,0 +1,9 @@
+.box-carrusel{
+    height: 38vw!important;
+}
+
+@media screen and (max-width:600px){
+    .box-carrusel{
+        height: 168vw!important;
+    }
+}

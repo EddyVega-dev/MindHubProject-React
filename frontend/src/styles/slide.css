@@ -1,0 +1,17 @@
+.cards-pather, .card-image img{
+    height: inherit;
+}
+
+.card-image{
+    height: 15vw;
+}
+
+@media screen and (max-width:600px){
+    .card-image{
+        height: 35vw!important;
+    }
+}
+
+.card-content {
+    padding: 0vw!important; 
+}
