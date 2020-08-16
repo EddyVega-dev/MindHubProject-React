@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Navbar, NavItem, Icon ,SideNav, SideNavItem, Button} from 'react-materialize'
+import {Navbar, NavItem, Icon, Dropdown, Divider, Button} from 'react-materialize'
 import '../styles/navbar.css'
 
 class Menu extends Component {
@@ -9,16 +9,54 @@ class Menu extends Component {
                 <Navbar
                     className='blue-grey'
                     alignLinks='right'
-                    brand={<img className='logoComplete' src={process.env.PUBLIC_URL+"/logoComplete.png"} alt="logoComplete"/>}
+                    centerChildren
+                    brand={<Dropdown
+                        id="Dropdown_6"
+                        className='right'
+                        options={{
+                          alignment: 'left',
+                          autoTrigger: true,
+                          closeOnClick: true,
+                          constrainWidth: true,
+                          container: null,
+                          coverTrigger: false,
+                          hover: false,
+                          inDuration: 150,
+                          onCloseEnd: null,
+                          onCloseStart: null,
+                          onOpenEnd: null,
+                          onOpenStart: null,
+                          outDuration: 250
+                        }}
+                        trigger={<img className='login' src={process.env.PUBLIC_URL+"/login.png"}/>}
+                      >
+                            <a href="#!" target='_blank'>
+                                one
+                            </a>
+                            <a href="#">
+                                two
+                            </a>
+                            <Divider />
+                            <a href="#">
+                                three
+                            </a>
+                            <a href="#">
+                                <Icon>
+                                view_module
+                                </Icon>
+                                four
+                            </a>
+                            <a href="#">
+                                <Icon>
+                                cloud
+                                </Icon>
+                                {' '}five
+                            </a>
+                      </Dropdown>}
                     id="mobile-nav"
-                    menuIcon={
-                        <div className='row'>
-                            <Icon className='col s6'>menu</Icon>
-                            <Icon className='col s6'>person_pin</Icon>
-                        </div>    
-                    }            
+                    menuIcon={<Icon>menu</Icon>}            
                     options={{
-                        draggable: true,
+                        draggable: false,
                         edge: 'left',
                         inDuration: 250,
                         onCloseEnd: null,

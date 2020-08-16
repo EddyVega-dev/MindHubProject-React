@@ -12,7 +12,7 @@ class Slide extends Component {
               <Col key={index} m={6} s={12}>
                 <Card
                   closeIcon={<Icon>close</Icon>}
-                  header={<CardTitle image={city.img}><div className='letterNameImg'>{city.nameImg}</div></CardTitle>}
+                  header={<a href='#!' target='_blank'><CardTitle image={city.img}><div className='letterNameImg'>{city.nameImg}</div></CardTitle></a>}
                   revealIcon={<Icon>more_vert</Icon>}
                 ></Card>
               </Col>

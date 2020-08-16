@@ -5,7 +5,7 @@ import '../styles/footer.css'
 class FootWeb extends Component {
     render() {
         return (
-            <div>
+            <>
                 <Footer
                     className='grey darken-3'                
                     moreLinks={<a className="grey-text text-lighten-4 right" href="https://github.com/EddyVega-dev">Create by developer Eddy Vega</a>}
@@ -19,7 +19,7 @@ class FootWeb extends Component {
                     You can use rows and columns here to organize your footer content.
                 </p>
                 </Footer>
-            </div>
+            </>
         );
     }
 }
