@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import NadBar from './NadBar'
+import Menu from './Menu'
 
 class Header extends Component {
     
     render() {
         return (
             <>
-                <NadBar/>
+                <Menu/>
             </>
         );
     }
