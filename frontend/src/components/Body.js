@@ -2,28 +2,23 @@ import React, { Component } from 'react';
 import {Carousel} from 'react-materialize'
 import Slide from './Slide'
 import '../styles/body.css'
+import Citys from '../json/info.json'
 
 class Body extends Component {
 
     state = {
-        ciudades: [
-            {
-                img: '../assets/images/buenosAires.png',
-                name: 'Autonomous City of Buenos Aires, Argentina',
-            },
-            {
-                img: '../assets/images/londres.png',
-                name: 'Ciudad de Londres, Inglaterra',
-            },
-            {
-                img: '../assets/images/buenosAires.png',
-                name: 'Ciudad Atónoma de Buenos Aires',
-            },
-            {
-                img: '../assets/images/buenosAires.png',
-                name: 'Ciudad Atónoma de Buenos Aires',
+        listCapitals: [],
+    }
+    
+    orderFourCapitals(){
+        let index2 = 0
+        Citys.map((city, index) => {
+            if((index + 1) % 4 === 0){
+                this.state.listCapitals.push(Citys.slice(index2, index + 1))
+                index2 = index + 1
             }
-        ]
+            (((index + 1) % 4 !== 0) && (index === (Citys.length - 1))) && this.state.listCapitals.push(this.state.citys.slice(index2, index + 1))
+        })
     }
 
     render() {
@@ -37,14 +32,14 @@ class Body extends Component {
                         indicators: true,  
                 }}
                 >
-                <div className="blue-grey lighten-3">
-                    <Slide/> 
-                </div>
-                <div className="amber">
-                    <div>
-                        <Slide/>
+                
+                {this.orderFourCapitals(),
+                this.state.listCapitals.map((capitals, index) =>
+                    <div key={index} className = 'blue-grey lighten-3'>
+                        <Slide citys={capitals}/>
                     </div>
-                </div>                
+                )}
+                
                 </Carousel>
             </>
         );

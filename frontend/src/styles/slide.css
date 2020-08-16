@@ -1,5 +1,19 @@
-.cards-pather, .card-image img{
+.card-image img{
     height: inherit;
+    padding: 0.3vw;
+}
+
+.card{    
+    box-shadow: 0vw 1vw 1vw  rgb(0, 0, 0, 0.5)!important;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    box-shadow: 0vw 1.1vw 1.1vw  rgb(0, 0, 0, 0.5)!important;
+}
+
+.card-image img, .card{
+    border-radius: 3vw!important;
 }
 
 .card-image{
@@ -11,7 +25,6 @@
         height: 35vw!important;
     }
 }
-
 .card-content {
     padding: 0vw!important; 
 }
