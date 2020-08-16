@@ -17,6 +17,7 @@
 }
 
 .card-image{
+    align-items: center;
     height: 15vw;
 }
 
@@ -25,6 +26,21 @@
         height: 35vw!important;
     }
 }
+
 .card-content {
     padding: 0vw!important; 
+}
+
+.card-title{
+    position: inherit!important;
+    bottom: 9vw!important;
+    width: auto;
+    padding: 0vw!important;
+}
+
+.letterNameImg{
+    color: black;
+    font-size: large;
+    border-radius: 3vw!important;
+    background-color: rgba(127, 255, 212, 0.459)!important;
 }
