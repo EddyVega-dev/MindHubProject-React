@@ -13,10 +13,10 @@ class FootWeb extends Component {
                     links={
                     <ul>
                         <Row>
-                            <li className='col'><a className="grey-text text-lighten-3" href="#!"><img className='imageFoot' src={process.env.PUBLIC_URL+"/facebook.png"}/></a></li>
-                            <li className='col'><a className="grey-text text-lighten-3" href="#!"><img className='imageFoot' src={process.env.PUBLIC_URL+"/instagram.png"}/></a></li>
-                            <li className='col'><a className="grey-text text-lighten-3" href="#!"><img className='imageFoot' src={process.env.PUBLIC_URL+"/twitter.png"}/></a></li>
-                            <li className='col'><a className="grey-text text-lighten-3" href="#!"><img className='imageFoot' src={process.env.PUBLIC_URL+"/youtube.png"}/></a></li>
+                            <li className='col'><a className="grey-text text-lighten-3" href='https://www.facebook.com/' target='_blank'><img className='imageFoot' src={process.env.PUBLIC_URL+"/facebook.png"}/></a></li>
+                            <li className='col'><a className="grey-text text-lighten-3" href='https://www.instagram.com/' target='_blank'><img className='imageFoot' src={process.env.PUBLIC_URL+"/instagram.png"}/></a></li>
+                            <li className='col'><a className="grey-text text-lighten-3" href='https://twitter.com/' target='_blank'><img className='imageFoot' src={process.env.PUBLIC_URL+"/twitter.png"}/></a></li>
+                            <li className='col'><a className="grey-text text-lighten-3" href='https://www.youtube.com/' target='_blank'><img className='imageFoot' src={process.env.PUBLIC_URL+"/youtube.png"}/></a></li>
                         </Row>
                     </ul>}
                 >
