@@ -7,14 +7,34 @@
     border-radius: 3vw;
 }
 
-.dropdown-content{
-    height: 20vw!important;
-    left: 0px!important;
-    top: 5vw!important;
+nav .brand-logo{
+    display: none;
 }
 
 .login:hover{
     transform: scale(0.8);
-    box-shadow: 0vw 0.5vw 0.5vw  rgb(0, 0, 0, 0.5)!important;
+    box-shadow: 0vw 0.5vw 0.5vw  rgb(0, 0, 0, 0.5);
     padding: 0vw;
+}
+
+.nextButton{
+    box-shadow:  0vw 0.5vw 0.5vw  rgb(0, 0, 0, 0.5);
+    border-radius: 11vw;
+}
+
+.nextButton:hover{
+    transform: scale(1.1);
+    box-shadow:  0vw 0.5vw 0.5vw  rgb(0, 0, 0, 0.5);
+    border-radius: 11vw;
+}
+
+.backgroundLogo{
+    background-image: url('https://thumbs.dreamstime.com/z/viaje-al-mundo-viaje-por-carretera-92653654.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+}
+
+.menuSecond{
+    display:none!important;
 }

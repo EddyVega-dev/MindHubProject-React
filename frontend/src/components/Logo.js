@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Navbar, NavItem, Icon ,SideNav, SideNavItem, Button} from 'react-materialize'
+import {Navbar, Icon} from 'react-materialize'
 import '../styles/navbar.css'
 
 class Logo extends Component {
@@ -7,9 +7,9 @@ class Logo extends Component {
         return (
             <>
                 <Navbar
-                    className='blue-grey'
+                    className='blue-grey backgroundLogo'
                     centerLogo
-                    menuIcon={<Icon></Icon>}
+                    menuIcon={<Icon className='menuSecond'>menu</Icon>}
                     brand={<img className='logo' src={process.env.PUBLIC_URL+"/logoComplete.png"} alt="logoComplete"/>}          
                     options={{
                         draggable: true,
