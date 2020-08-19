@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Navbar, NavItem, Icon, Dropdown, Divider} from 'react-materialize'
 import '../styles/navbar.css'
+import { Link } from 'react-router-dom'
 
 class Menu extends Component {
     render() {
@@ -51,8 +52,8 @@ class Menu extends Component {
                         preventScrolling: true
                     }}
                 >
-                <NavItem href="#!">
-                    To check
+                <NavItem>
+                    <Link to='/'>To check</Link>
                 </NavItem>
                 <NavItem href="#!">
                     To check
