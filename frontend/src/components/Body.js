@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CarouselEsp from './CarouselEsp';
+import CarouselM from './CarouselM';
 import Hero from './Hero';
 
 class Body extends Component {
@@ -7,7 +7,7 @@ class Body extends Component {
         return (
             <>
                 <Hero/>
-                <CarouselEsp/>
+                <CarouselM/>
             </>
         );
     }

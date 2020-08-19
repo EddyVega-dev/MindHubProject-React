@@ -4,7 +4,7 @@ import Slide from './Slide'
 import '../styles/carousel.css'
 import Citys from '../json/info.json'
 
-class CarouselEsp extends Component {
+class CarouselM extends Component {
     
     state = {
         listCapitals: [],
@@ -36,7 +36,7 @@ class CarouselEsp extends Component {
                 {this.orderFourCapitals(),
                 this.state.listCapitals.map((capitals, index) =>
                     <div key={index} className = 'blue-grey lighten-3'>
-                        <Slide citys={capitals}/>
+                        <Slide cities={capitals}/>
                     </div>
                 )}
                 
@@ -46,4 +46,4 @@ class CarouselEsp extends Component {
     }
 }
 
-export default CarouselEsp
+export default CarouselM

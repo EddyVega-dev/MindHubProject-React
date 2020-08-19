@@ -53,7 +53,7 @@ class Menu extends Component {
                     }}
                 >
                 <NavItem>
-                    <Link to='/'>To check</Link>
+                    <Link to='/'>Home</Link>
                 </NavItem>
                 <NavItem href="#!">
                     To check

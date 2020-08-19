@@ -1,9 +1,9 @@
 import React from 'react';
 import Home from './pages/Home'
 import M from 'materialize-css';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import Header from './components/Header'
-import Footer from './components/FootWeb'
+import FooterM from './components/FooterM'
 import Cities from './pages/Cities'
 
 class App extends React.Component{
@@ -20,8 +20,9 @@ class App extends React.Component{
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path='/Cities' component={Cities}/>
+                    <Redirect to='/'/>
                 </Switch>
-                <Footer/>
+                <FooterM/>
             </BrowserRouter>
         </>
     )
