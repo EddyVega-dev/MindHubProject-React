@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Navbar, NavItem, Icon, Dropdown, Divider} from 'react-materialize'
 import '../styles/navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 class Menu extends Component {
     render() {
@@ -52,15 +52,9 @@ class Menu extends Component {
                         preventScrolling: true
                     }}
                 >
-                <NavItem>
-                    <Link to='/'>Home</Link>
-                </NavItem>
-                <NavItem href="#!">
-                    To check
-                </NavItem>
-                <NavItem href="#!">
-                    To check
-                </NavItem>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/'>To check</NavLink>
+                <NavLink to='/'>To check</NavLink>
                 </Navbar>
             </>
         );
