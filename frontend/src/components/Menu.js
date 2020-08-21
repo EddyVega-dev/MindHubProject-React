@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Navbar, NavItem, Icon, Dropdown, Divider} from 'react-materialize'
+import {Dropdown, Divider} from 'react-materialize'
 import '../styles/navbar.css'
 import { Link, NavLink } from 'react-router-dom'
 
@@ -7,55 +7,44 @@ class Menu extends Component {
     render() {
         return (
             <>
-                <Navbar
-                    className='blue-grey'
-                    alignLinks='right'
-                    centerChildren
-                    brand={<Dropdown
-                        id="Dropdown_6"
-                        options={{
-                          alignment: 'left',
-                          autoTrigger: true,
-                          closeOnClick: true,
-                          constrainWidth: true,
-                          container: null,
-                          coverTrigger: false,
-                          hover: false,
-                          inDuration: 150,
-                          onCloseEnd: null,
-                          onCloseStart: null,
-                          onOpenEnd: null,
-                          onOpenStart: null,
-                          outDuration: 250
-                        }}
-                        trigger={<img className='login' src={process.env.PUBLIC_URL+"/login.png"}/>}
-                      >
-                            <a href="#" target='_blank'>
-                                Login
+                <div className="navbar-fixed">
+                    <nav className='blue-grey'>
+                        <div className="nav-wrapper container">
+                            <Link className="brand-logo right">
+                                <Dropdown
+                                    id="Dropdown_6"
+                                    options={{
+                                    alignment: 'left',
+                                    coverTrigger: false,
+                                    hover: false,
+                                    }}
+                                    trigger={<img className='login' src={process.env.PUBLIC_URL+"/login.png"}/>}
+                                >
+                                        <Link>
+                                            Login
+                                        </Link>
+                                        <Divider />
+                                        <Link href="#">
+                                            Register
+                                        </Link>
+                                </Dropdown>
+                            </Link>
+                            <a data-target="menu-responsive" className="sidenav-trigger">
+                                <i className="material-icons">menu</i>
                             </a>
-                            <Divider />
-                            <a href="#">
-                                Register
-                            </a>
-                      </Dropdown>}
-                    id="mobile-nav"
-                    menuIcon={<Icon>menu</Icon>}            
-                    options={{
-                        draggable: false,
-                        edge: 'left',
-                        inDuration: 250,
-                        onCloseEnd: null,
-                        onCloseStart: null,
-                        onOpenEnd: null,
-                        onOpenStart: null,
-                        outDuration: 200,
-                        preventScrolling: true
-                    }}
-                >
-                <NavLink to='/'>Home</NavLink>
-                <NavLink to='/'>To check</NavLink>
-                <NavLink to='/'>To check</NavLink>
-                </Navbar>
+                            <ul id="nav-mobile" className="left hide-on-med-and-down">
+                                <li><NavLink to='/'>Home</NavLink></li>
+                                <li><NavLink to='/'>To check</NavLink></li>
+                                <li><NavLink to='/'>To check</NavLink></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <ul class="sidenav" id="menu-responsive">
+                    <li><NavLink to='/'>Home</NavLink></li>
+                    <li><NavLink to='/'>To check</NavLink></li>
+                    <li><NavLink to='/'>To check</NavLink></li>
+                </ul>
             </>
         );
     }

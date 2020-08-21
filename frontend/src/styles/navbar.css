@@ -1,14 +1,10 @@
-.logo, .login{
+.logo, .login, .brand-logo{
     height: inherit;
 }
 
 .login{
     padding: 0.5vw 0vw;
-    border-radius: 3vw;
-}
-
-nav .brand-logo{
-    display: none;
+    border-radius: 4vw;
 }
 
 .login:hover{
