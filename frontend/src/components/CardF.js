@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import {Card, Icon, CardTitle} from "react-materialize";
 import '../styles/card.css'
 
-class CardM extends Component {
+class CardF extends Component {
     render() {
         return (
             <>
                 <Card
                 closeIcon={<Icon>close</Icon>}
-                header={<a href='#'><CardTitle image={this.props.city.img}><div className='letterNameImg center'>{this.props.city.nameImg}</div></CardTitle></a>}
+                header={<CardTitle image={this.props.city.flag}><div className='letterNameImg center'>{this.props.city.capital}</div></CardTitle>}
                 revealIcon={<Icon>more_vert</Icon>}
                 ></Card>
             </>
@@ -16,4 +16,4 @@ class CardM extends Component {
     }
 }
 
-export default CardM
+export default CardF

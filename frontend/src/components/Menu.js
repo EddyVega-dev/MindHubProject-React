@@ -10,7 +10,7 @@ class Menu extends Component {
                 <div className="navbar-fixed">
                     <nav className='blue-grey'>
                         <div className="nav-wrapper container">
-                            <Link className="brand-logo right">
+                            <div className="brand-logo right">
                                 <Dropdown
                                     id="Dropdown_6"
                                     options={{
@@ -20,18 +20,18 @@ class Menu extends Component {
                                     }}
                                     trigger={<img className='login' src={process.env.PUBLIC_URL+"/login.png"}/>}
                                 >
-                                        <Link>
+                                        <Link to='/'>
                                             Login
                                         </Link>
                                         <Divider />
-                                        <Link href="#">
+                                        <Link to='/'>
                                             Register
                                         </Link>
                                 </Dropdown>
-                            </Link>
-                            <a data-target="menu-responsive" className="sidenav-trigger">
+                            </div>
+                            <Link to='#' data-target="menu-responsive" className="sidenav-trigger">
                                 <i className="material-icons">menu</i>
-                            </a>
+                            </Link>
                             <ul id="nav-mobile" className="left hide-on-med-and-down">
                                 <li><NavLink to='/'>Home</NavLink></li>
                                 <li><NavLink to='/'>To check</NavLink></li>
@@ -40,7 +40,7 @@ class Menu extends Component {
                         </div>
                     </nav>
                 </div>
-                <ul class="sidenav" id="menu-responsive">
+                <ul className="sidenav" id="menu-responsive">
                     <li><NavLink to='/'>Home</NavLink></li>
                     <li><NavLink to='/'>To check</NavLink></li>
                     <li><NavLink to='/'>To check</NavLink></li>

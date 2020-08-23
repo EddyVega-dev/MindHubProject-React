@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-materialize";
 import CardM from './CardM'
-import "../styles/slide.css";
 
 class Slide extends Component {
     render() {
