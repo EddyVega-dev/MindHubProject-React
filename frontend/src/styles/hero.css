@@ -1,18 +1,17 @@
 .nextButton{
-    height: 20vh;
+    height: 15vh;
 }
 
 .description{
     font-size: large;
     text-align: center;
-    height: 8vh;
 }
 
 .row{
     margin-bottom: 0vh!important;
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:992px){
     .nextButton{
         height: 10vh;
     }

@@ -1,24 +1,43 @@
+const City = require('../models/City')
+
 const CitiesController = {
-    getListCities: (req, res) => {
+    getListCities: async (req, res) => {
         //Pedirle a la base de datos
-        const listCities = [
-            {nameImg: 'Lima', img: 'saraza'}
-        ]
+        const listCities = await City.find()
 
         //Devolver al frontend la lista que nos dió la base de datos
         res.json({
             success: true,
-            response: listCities
+            cities: listCities
         })
     },
 
-    newCitie: (req, res) => {
+    newCity: (req, res) => {
         //Abro la petición que me llega del frontend y extraigo la información de la nueva ciudad
-        const{nameImg, img} = req.body
+        const{city, country, image} = req.body
 
         //Valido los datos, que sean correctos, que no falte alguno, que no tenga caracteres raros,etc.
 
         //Le pido a la base de datos que grabe este nueva ciudad
+        const newCity = new City({
+            city: city,
+            country: country,
+            image: image,
+        })
+
+        newCity.save()
+        .then(city => {
+            res.json({
+                success: true,
+                city: city,
+            })
+        })
+        .catch(error => {
+            res.json({
+                success: false,
+                error: error,
+            })
+        })
 
         //Responderle al frontend que fue exitoso el grabado de la nueva ciudad o no
     }
