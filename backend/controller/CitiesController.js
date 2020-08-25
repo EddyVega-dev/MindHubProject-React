@@ -26,7 +26,7 @@ const CitiesController = {
         })
 
         newCity.save()
-        .then(city => {
+        .then(city => {//Responderle al frontend que fue exitoso el grabado de la nueva ciudad o no
             res.json({
                 success: true,
                 city: city,
@@ -38,8 +38,6 @@ const CitiesController = {
                 error: error,
             })
         })
-
-        //Responderle al frontend que fue exitoso el grabado de la nueva ciudad o no
     }
 }
 

@@ -11,9 +11,8 @@ class Cities extends Component {
     }
 
     async componentDidMount(){
-        //https://restcountries.eu/rest/v2/all
         const response = await Axios.get('http://127.0.0.1:4000/api/cities')
-        const info = await response.data.cities
+        const info = response.data.cities
         this.setState({
             cities: info,
             citiesFiltered: info 
