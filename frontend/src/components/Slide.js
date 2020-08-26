@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-materialize";
-import CardM from './CardM'
+import CardH from './CardH'
 
 class Slide extends Component {
     render() {
@@ -9,7 +9,7 @@ class Slide extends Component {
                 <Row>
                 {this.props.cities.map((city, index) => 
                     <Col key={index} m={6} s={12}>
-                        <CardM city={city}/>
+                        <CardH city={city}/>
                     </Col>
                 )}
                 </Row>

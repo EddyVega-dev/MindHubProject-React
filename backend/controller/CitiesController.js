@@ -38,7 +38,7 @@ const CitiesController = {
                 error: error,
             })
         })
-    }
-}
+    },
+} 
 
 module.exports = CitiesController

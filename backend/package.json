@@ -4,8 +4,9 @@
   "description": "API para pedir las ciudades del mundo.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon ./server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "backend": "nodemon ./server.js",
+    "frontend": "cd .. && cd frontend && npm start",
+    "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\""
   },
   "keywords": [
     "ciudad",

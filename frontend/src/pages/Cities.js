@@ -12,7 +12,7 @@ class Cities extends Component {
 
     async componentDidMount(){
         const response = await Axios.get('http://127.0.0.1:4000/api/cities')
-        const info = response.data.cities
+        const info = await response.data.cities
         this.setState({
             cities: info,
             citiesFiltered: info 
@@ -40,7 +40,7 @@ class Cities extends Component {
                     <Row>
                     {this.state.citiesFiltered.map((city, index) => 
                         <Col key={index} m={6} s={12}>
-                            <CardM city={city}/>
+                            <CardM city={city} link={city._id}/>
                         </Col>
                     )}
                     </Row>
