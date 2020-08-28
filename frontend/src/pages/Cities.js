@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {TextInput, Row, Col} from 'react-materialize'
 import CardM from '../components/CardM'
 import Axios from 'axios'
+import '../styles/cities.css'
 
 class Cities extends Component {
 
@@ -30,16 +31,22 @@ class Cities extends Component {
     render() {
         return (
             <>
+                <div className='section heroCities'>
+                    <Row className='center'>
+                        <h1>CITIES</h1>
+                    </Row>
+                    <Row className='container'>
+                        <TextInput
+                            id="TextInput-4"
+                            label="Search city"
+                            onChange={this.captureCity} 
+                        />
+                    </Row>
+                </div>
                 <div className='container'>
-                    <h1 className='center'>Cities</h1>
-                    <TextInput
-                        id="TextInput-4"
-                        label="Search city"
-                        onChange={this.captureCity} 
-                    />
                     <Row>
                     {this.state.citiesFiltered.map((city, index) => 
-                        <Col key={index} m={6} s={12}>
+                        <Col key={index} m={4} s={12}>
                             <CardM city={city} link={city._id}/>
                         </Col>
                     )}

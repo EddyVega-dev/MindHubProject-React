@@ -1,0 +1,12 @@
+.user{
+    height: 10vh;
+}
+
+.userContent{
+    border-radius: 5vw;
+}
+
+.itineraryContent{
+    margin-bottom: 5vh;
+    border-radius: 2vh;
+}

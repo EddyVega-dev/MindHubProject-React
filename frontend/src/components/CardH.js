@@ -11,8 +11,8 @@ class CardH extends Component {
             header={<CardTitle image={this.props.city.image}><div className='letterNameImg center'>{this.props.city.city}, {this.props.city.country}</div></CardTitle>}
             revealIcon={<Icon>more_vert</Icon>}
             ></Card>
-        </>
-        );
+            </>
+        )
     }
 }
 

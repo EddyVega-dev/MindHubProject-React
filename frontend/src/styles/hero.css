@@ -1,10 +1,25 @@
 .nextButton{
+    background-color: rgba(123, 166, 226, 0.925);
     height: 15vh;
+    margin-top: 1vw;
+}
+
+.hero{
+    background-image: url('https://www.viajejet.com/wp-content/viajes/las-principales-aerolineas-del-mundo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 20%;
+}
+
+.hero2{
+    background-color: rgba(70, 70, 143, 0.19);
+    padding: 0vh!important;
 }
 
 .description{
     font-size: large;
     text-align: center;
+    font-weight: bolder;
 }
 
 .row{

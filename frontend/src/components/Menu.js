@@ -34,7 +34,7 @@ class Menu extends Component {
                             </Link>
                             <ul id="nav-mobile" className="left hide-on-med-and-down">
                                 <li><NavLink to='/'>Home</NavLink></li>
-                                <li><NavLink to='/'>To check</NavLink></li>
+                                <li><NavLink to='/cities'>Cities</NavLink></li>
                                 <li><NavLink to='/'>To check</NavLink></li>
                             </ul>
                         </div>
@@ -42,7 +42,7 @@ class Menu extends Component {
                 </div>
                 <ul className="sidenav" id="menu-responsive">
                     <li><NavLink to='/'>Home</NavLink></li>
-                    <li><NavLink to='/'>To check</NavLink></li>
+                    <li><NavLink to='/cities'>Cities</NavLink></li>
                     <li><NavLink to='/'>To check</NavLink></li>
                 </ul>
             </>

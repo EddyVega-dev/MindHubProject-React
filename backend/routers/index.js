@@ -7,11 +7,14 @@ routes.route('/cities')
 .get(CitiesController.getListCities)
 .post(CitiesController.newCity)
 
-routes.route('/itineraries/:idCity')
-.get(ItinerariesController.getItineraryCity)
+routes.route('/cities/:idCity')
+.get(CitiesController.getCity)
 
 routes.route('/itineraries')
 .get(ItinerariesController.getListItinerary)
 .post(ItinerariesController.newItinerary)
+
+routes.route('/itineraries/:idCity')
+.get(ItinerariesController.getItineraryCity)
 
 module.exports = routes

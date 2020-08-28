@@ -11,7 +11,7 @@ const ItineraryController = {
     },
 
     newItinerary: (req, res) => {
-        const{hashtag, title, profilePic, rating, duration, price, cityId} = req.body
+        const{hashtag, title, profilePic, rating, duration, price, cityId, userName} = req.body
 
         const newItinerary = new Itinerary({
             hashtag: hashtag,
@@ -21,6 +21,7 @@ const ItineraryController = {
             duration: duration,
             price: price,
             cityId: cityId,
+            userName: userName,
         })
 
         newItinerary.save()
@@ -39,9 +40,9 @@ const ItineraryController = {
     },
 
     getItineraryCity: async (req, res) => {
-        const searchCity = await Itinerary.findOne({cityId: req.params.idCity})
+        const searchItineraryCity = await Itinerary.find({cityId: req.params.idCity})
         res.json({
-            itineraryCity: searchCity
+            itineraryCity: searchItineraryCity
         })
     }
 

@@ -39,6 +39,14 @@ const CitiesController = {
             })
         })
     },
+
+    getCity: async (req, res) => {
+        const searchCity = await City.findOne({_id: req.params.idCity})
+        res.json({
+            success: true,
+            searchCity: searchCity, 
+        })
+    }
 } 
 
 module.exports = CitiesController

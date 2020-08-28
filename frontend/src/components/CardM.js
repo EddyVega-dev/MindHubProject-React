@@ -5,7 +5,6 @@ import '../styles/card.css'
 
 class CardM extends Component {
     render() {
-         /* to={`/itineraries/${this.props.link}`} */
         return (
             <>
                 <Card

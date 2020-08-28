@@ -1,0 +1,16 @@
+.heroCities{
+    background-image: url('https://www.preferente.com/wp-content/uploads/2018/07/aviones.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 35%;
+}
+
+h1{
+    color: orange;
+    margin: 0vh!important;
+}
+
+.input-field{
+    background-color: rgba(245, 245, 245, 0.836);
+    border-radius: 2vh;
+}
