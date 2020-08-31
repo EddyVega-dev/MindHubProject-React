@@ -40,7 +40,7 @@
 
 .letterNameImg{
     color: black;
-    font-size: large;
+    font-size: large!important;
     border-radius: 3vw!important;
     background-color: rgba(127, 255, 212, 0.459)!important;
 }

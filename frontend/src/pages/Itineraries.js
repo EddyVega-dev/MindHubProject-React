@@ -1,66 +1,74 @@
 import React, { Component } from 'react'
-import Axios from 'axios';
 import { Col, Row, Icon} from "react-materialize";
-import CardH from '../components/CardH'
 import Itinerary from '../components/Itinerary'
 import '../styles/itineraries.css'
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import citiesActions from '../redux/actions/citiesAction'
 
 class Itineraries extends Component {
-    
-    state = {
-        itinerariesCity: [],
-        city: {}
-    }
 
     async componentDidMount() {
-        const searchId = this.props.match.params.idCity
-        const responseItinerary = await Axios.get(`http://127.0.0.1:4000/api/itineraries/${searchId}`)
-        const responseCity = await Axios.get(`http://127.0.0.1:4000/api/cities/${searchId}`)
-        const itineraryCity = responseItinerary.data.itineraryCity
-        const city = responseCity.data.searchCity
-
-        this.setState({
-            itinerariesCity: itineraryCity,
-            city: city
-        })
+        const searchIdCity = this.props.match.params.idCity
+        this.props.getCity(searchIdCity)
+        this.props.getItinerary(searchIdCity)
     }
     
     render() {
+
+        const styleItinerary = {
+            backgroundImage: `url(${this.props.response.city.image})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPositionY: '50%',
+            fontSize: '5vh',
+            padding: '8vh 0vh',
+            marginTop: '1vh',
+        }
+
         return (
             <>
-                <div className="container">
-                    <Row className='valign-center'>
-                        <Col m={6} s={12}>
-                            <CardH city={this.state.city}/>
-                        </Col>
-                        <Col m={6} className='center'>
-                            <div className='section cityName'>
-                                <p className='responsiveText'>Itinerary of the city of {this.state.city.city}, {this.state.city.country}</p>
-                            </div>
-                        </Col>
-                    </Row>
+                <div className='blue-grey lighten-3'>
+                    <div style={styleItinerary} className=' section center valign-center'>
+                        <p className='nameItinerary responsiveText'>Itinerary {this.props.response.city.city}, {this.props.response.city.country}</p>
+                    </div>
 
-                    <Row>
-                        {this.state.itinerariesCity.map( (itinerary , index) => 
-                            <Col key={index} m={12} s={12}>
-                                <Itinerary itineraryCity={itinerary}/>
-                            </Col>
-                        )}
-                    </Row>
-                    
-                    <Row>
-                        <Col m={6} s={12}>
-                            <Link to='/Cities'><Icon>fast_rewind</Icon></Link>
-                        </Col>
-                        <Col m={6} s={12}>
-                            <Link to='/'><Icon>home</Icon></Link>
-                        </Col>
-                    </Row>
-                </div>                
+                    <div className='itinerariesContainer container'>
+                        <div className="container">
+
+                            <Row>
+                                {this.props.response.itinerariesCity.map( (itinerary , index) => 
+                                    <Col key={index} m={12} s={12}>
+                                        <Itinerary itineraryCity={itinerary}/>
+                                    </Col>
+                                )}
+                            </Row>
+                            
+                            <Row>
+                                <Col m={6} s={12}>
+                                    <Link to='/Cities'><Icon>fast_rewind</Icon></Link>
+                                </Col>
+                                <Col m={6} s={12}>
+                                    <Link to='/'><Icon>home</Icon></Link>
+                                </Col>
+                            </Row>
+                        </div>                
+                    </div>
+                </div>
             </>
         );
     }
 }
 
-export default Itineraries
+const mapStateToProps = state => {
+    return {
+        response: state.cities,
+    }
+}
+
+const mapDispatchToProps = {
+    getCity: citiesActions.getCity,
+    getItinerary: citiesActions.getItinerary,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Itineraries)

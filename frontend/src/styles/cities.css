@@ -1,5 +1,14 @@
+.citiesContainer{
+    /* background-image: url('https://get.wallhere.com/photo/anime-girls-airport-planes-sunset-1424629.jpg'); */
+    background-image: url('https://st2.depositphotos.com/2492355/6278/v/950/depositphotos_62788265-stock-illustration-background-with-airplanes.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 80%;
+}
+
 .heroCities{
-    background-image: url('https://www.preferente.com/wp-content/uploads/2018/07/aviones.jpg');
+    /* background-image: url('https://www.preferente.com/wp-content/uploads/2018/07/aviones.jpg'); */
+    background-image: url('https://get.wallhere.com/photo/anime-girls-airport-planes-sunset-1424629.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: 35%;
@@ -10,7 +19,15 @@ h1{
     margin: 0vh!important;
 }
 
-.input-field{
+.input-field, .errorCities{
     background-color: rgba(245, 245, 245, 0.836);
     border-radius: 2vh;
+}
+
+.errorCity{
+    height: 50vh;
+}
+
+.foundCity{
+    margin: 0vw!important;
 }

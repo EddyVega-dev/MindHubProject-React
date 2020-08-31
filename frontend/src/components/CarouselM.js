@@ -30,6 +30,7 @@ class CarouselM extends Component {
                     options={{
                         fullWidth: true,
                         indicators: true,  
+                        duration: 50,
                 }}
                 >
                 
@@ -41,6 +42,8 @@ class CarouselM extends Component {
                 )}
                 
                 </Carousel>
+
+
             </>
         );
     }

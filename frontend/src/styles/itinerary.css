@@ -1,12 +1,17 @@
 .user{
-    height: 10vh;
+    height: 10vw;
 }
 
-.userContent{
-    border-radius: 5vw;
+.aligncenter{
+    margin: 10px auto 20px;
+    display: block;
 }
 
 .itineraryContent{
-    margin-bottom: 5vh;
+    margin: 5vh auto;
     border-radius: 2vh;
+    background-image: url('http://wallpapers.org.es/wp-content/uploads/2012/11/fondo-degradado.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 35%;
 }

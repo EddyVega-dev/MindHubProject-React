@@ -10,3 +10,14 @@
 .material-icons{
     font-size: 5vw;
 }
+
+/* .itinerariesContainer{
+    background-image: url('https://i.pinimg.com/originals/b8/2b/06/b82b063524cc2508a910ecda1ddd75f8.png');
+    background-image: url('https://vignette.wikia.nocookie.net/assassinscreed/images/9/90/ACS_City_of_London.jpg/revision/latest?cb=20150808142925');
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+.nameItinerary{
+    background-color: rgba(245, 245, 245, 0.557);
+}

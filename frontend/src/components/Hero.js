@@ -9,7 +9,7 @@ class Hero extends Component {
         //process.env.PUBLIC_URL+"/next.png"
         return (
             <>
-                <div className="section hero">
+                <div className="container section hero">
                     <Row className='container center'>
                         <div className="section description hero2">Find your perfect trip, designed by insiders who know and love their cities.</div>
                         <Link to='/Cities'><img className="nextButton" src={AllCities} alt="nextButton"/></Link>

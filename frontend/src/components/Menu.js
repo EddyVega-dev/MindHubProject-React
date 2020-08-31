@@ -18,7 +18,7 @@ class Menu extends Component {
                                     coverTrigger: false,
                                     hover: false,
                                     }}
-                                    trigger={<img className='login' src={process.env.PUBLIC_URL+"/login.png"}/>}
+                                    trigger={<img className='login' src={process.env.PUBLIC_URL+"/login.png"} alt='login'/>}
                                 >
                                         <Link to='/'>
                                             Login

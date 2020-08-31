@@ -13,10 +13,10 @@ class FootWeb extends Component {
                     links={
                     <ul>
                         <Row>
-                            <li className='col'><a className="grey-text text-lighten-3" href='https://www.facebook.com/' target='_blank'><img className='imageFoot' src={process.env.PUBLIC_URL+"/facebook.png"}/></a></li>
-                            <li className='col'><a className="grey-text text-lighten-3" href='https://www.instagram.com/' target='_blank'><img className='imageFoot' src={process.env.PUBLIC_URL+"/instagram.png"}/></a></li>
-                            <li className='col'><a className="grey-text text-lighten-3" href='https://twitter.com/' target='_blank'><img className='imageFoot' src={process.env.PUBLIC_URL+"/twitter.png"}/></a></li>
-                            <li className='col'><a className="grey-text text-lighten-3" href='https://www.youtube.com/' target='_blank'><img className='imageFoot' src={process.env.PUBLIC_URL+"/youtube.png"}/></a></li>
+                            <li className='col'><a className="grey-text text-lighten-3" href='https://www.facebook.com/'><img className='imageFoot' src={process.env.PUBLIC_URL+"/facebook.png"} alt='facebook'/></a></li>
+                            <li className='col'><a className="grey-text text-lighten-3" href='https://www.instagram.com/'><img className='imageFoot' src={process.env.PUBLIC_URL+"/instagram.png"} alt='instagram'/></a></li>
+                            <li className='col'><a className="grey-text text-lighten-3" href='https://twitter.com/'><img className='imageFoot' src={process.env.PUBLIC_URL+"/twitter.png"} alt='twitter'/></a></li>
+                            <li className='col'><a className="grey-text text-lighten-3" href='https://www.youtube.com/'><img className='imageFoot' src={process.env.PUBLIC_URL+"/youtube.png"} alt='youtube'/></a></li>
                         </Row>
                     </ul>}
                 >

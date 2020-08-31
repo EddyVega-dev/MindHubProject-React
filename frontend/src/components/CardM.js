@@ -9,7 +9,7 @@ class CardM extends Component {
             <>
                 <Card
                 closeIcon={<Icon>close</Icon>}
-                header={<Link to={`/itineraries/${this.props.link}`}><CardTitle image={this.props.city.image}><div className='letterNameImg center'>{this.props.city.city}, {this.props.city.country}</div></CardTitle></Link>}
+                header={<Link to={`/itineraries/${this.props.link}`}><CardTitle image={this.props.city.image}><div className='letterNameImg center responsiveText'>{this.props.city.city}, {this.props.city.country}</div></CardTitle></Link>}
                 revealIcon={<Icon>more_vert</Icon>}
                 ></Card>
             </>

@@ -7,7 +7,9 @@ class Body extends Component {
         return (
             <>
                 <Hero/>
-                <CarouselM/>
+                <div className='container'>
+                    <CarouselM/>
+                </div>
             </>
         );
     }
