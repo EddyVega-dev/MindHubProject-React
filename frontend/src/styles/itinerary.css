@@ -1,5 +1,5 @@
 .user{
-    height: 10vw;
+    height: 20vh;
 }
 
 .aligncenter{
@@ -7,11 +7,36 @@
     display: block;
 }
 
+.stylePrice{
+    font-size: 4vw!important;
+}
+
 .itineraryContent{
     margin: 5vh auto;
     border-radius: 2vh;
-    background-image: url('http://wallpapers.org.es/wp-content/uploads/2012/11/fondo-degradado.jpg');
+    background-image: url('https://letrascaninas.files.wordpress.com/2016/08/colores-difuminados.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: 35%;
+}
+
+@media screen and (max-width:600px){
+    .nameUser{
+        margin: 0vw!important;
+        font-size: 5vw;
+    }
+}
+
+.nameUser{
+    font-size:3vw;
+}
+
+.titleItinerary{
+    font-size: 5vw!important;
+    margin: 0vw!important;
+    background-color: rgba(245, 245, 245, 0.557);
+}
+
+.readMore{
+    margin-top: 3vw;
 }

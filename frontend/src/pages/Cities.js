@@ -21,7 +21,7 @@ class Cities extends Component {
             <>
                 <div className='section heroCities container'>
                     <Row className='center'>
-                        <h1>CITIES</h1>
+                        <h1 className='titleCities'>CITIES</h1>
                     </Row>
                     <Row>
                         <TextInput

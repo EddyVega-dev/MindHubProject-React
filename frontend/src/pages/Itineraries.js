@@ -8,7 +8,7 @@ import citiesActions from '../redux/actions/citiesAction'
 
 class Itineraries extends Component {
 
-    async componentDidMount() {
+    componentDidMount() {
         const searchIdCity = this.props.match.params.idCity
         this.props.getCity(searchIdCity)
         this.props.getItinerary(searchIdCity)
@@ -33,22 +33,26 @@ class Itineraries extends Component {
                         <p className='nameItinerary responsiveText'>Itinerary {this.props.response.city.city}, {this.props.response.city.country}</p>
                     </div>
 
-                    <div className='itinerariesContainer container'>
+                    <div className='itinerariesContainer'>
                         <div className="container">
 
                             <Row>
-                                {this.props.response.itinerariesCity.map( (itinerary , index) => 
+                                {(this.props.response.itinerariesCity.length !== 0) ? this.props.response.itinerariesCity.map( (itinerary , index) => 
                                     <Col key={index} m={12} s={12}>
                                         <Itinerary itineraryCity={itinerary}/>
                                     </Col>
-                                )}
+                                ) : <div className='section blue-grey itineraryContent'>
+                                        <h1 className='center responsiveText titleItinerary'>
+                                            Not Itinerary yet!
+                                        </h1>
+                                    </div>}
                             </Row>
                             
                             <Row>
-                                <Col m={6} s={12}>
+                                <Col m={6} s={6}>
                                     <Link to='/Cities'><Icon>fast_rewind</Icon></Link>
                                 </Col>
-                                <Col m={6} s={12}>
+                                <Col m={6} s={6}>
                                     <Link to='/'><Icon>home</Icon></Link>
                                 </Col>
                             </Row>

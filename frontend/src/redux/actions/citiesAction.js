@@ -41,7 +41,8 @@ const citiesActions = {
                 payload: itineraryCity,
             })
         }
-    }
+    },
+
 }
 
 export default citiesActions

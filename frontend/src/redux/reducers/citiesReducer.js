@@ -3,6 +3,7 @@ const initialState = {
     citiesFiltered: [],
     itinerariesCity: [],
     city: {},
+   
 }
 
 const citiesReducer = (state = initialState, action) => {
@@ -31,7 +32,6 @@ const citiesReducer = (state = initialState, action) => {
                 ...state,
                 itinerariesCity: action.payload
             }
-
         default:
             return state
     }

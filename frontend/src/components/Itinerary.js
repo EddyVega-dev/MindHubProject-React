@@ -1,41 +1,68 @@
 import React, { Component } from 'react'
-import {Row, Col} from 'react-materialize'
+import {Row, Col, Icon, Button} from 'react-materialize'
 import '../styles/itinerary.css'
 
 class Itinerary extends Component {
+    
+    state = {
+        viewMore: false,
+    }
+
     render() {
+
+
+        const viewPrice = (cantPrice) => {
+            if (cantPrice === 0) return <> </>
+            return (<><Icon className='stylePrice'>monetization_on</Icon> {viewPrice(cantPrice - 1)}</>)    
+        }
+
+        const viewSwitch = () => {
+            this.setState({
+                viewMore: !this.state.viewMore
+            })
+        }
+
+
         return (
             <>
                 <div className='section blue-grey itineraryContent'>
-                    <h1 className='center'>
-                        {this.props.itineraryCity.title}
+                    <h1 className='center responsiveText titleItinerary'>
+                        {this.props.itineraryCity.title.toUpperCase()}
                     </h1>
                     <Row>
-                        <Col m={4}>
-                            <img src='https://files.brightside.me/files/news/part_65/658960/8141310-image-crop-1517x1585-1544022651-728-1680c03dbb-1544090549.jpg' className='white aligncenter circle user' alt='user'/>
-                            <p className='center'>{this.props.itineraryCity.profilePic}</p>
+                        <Col m={4} s={12}>
+                            <img src={this.props.itineraryCity.profilePic} className='white aligncenter circle user' alt='user'/>
+                            <p className='center nameUser'>{this.props.itineraryCity.userName}</p>
                         </Col>
-                        <Col m={8}>
-                            <Row>
-                                <Col m={4}>
-                                    <p>Likes: {this.props.itineraryCity.rating}</p>
+                        <Col m={8} s={12}>
+                            <Row className=''>
+                                <Col m={3} s={4}>
+                                    <p className='center'><Icon>favorite_border</Icon>{this.props.itineraryCity.rating}</p>
                                 </Col>  
-                                <Col m={4}>
-                                    <p>{this.props.itineraryCity.duration} Hours</p>
+                                <Col m={3} s={4}>
+                                    <p className='center'><Icon>access_time</Icon>{this.props.itineraryCity.duration}h</p>
                                 </Col>
-                                <Col m={4}>
-                                    <p>{this.props.itineraryCity.price}</p>
+                                <Col m={6} s={4}>
+                                    <p>{viewPrice(this.props.itineraryCity.price)}</p>
                                 </Col>
                             </Row>
                             <Row>
-                                <Col m={2}>
+                                <Col m={2} s={2}>
                                     <p>Hashtag:</p> 
                                 </Col>
                                 {this.props.itineraryCity.hashtag.map((tag, index) =>
-                                    <Col key={index} m={3}> 
+                                    <Col key={index} m={3} s={3}> 
                                         <p className='center'>#{tag}</p>
                                     </Col>
                                 )}                                                     
+                            </Row>
+                            {this.state.viewMore && <div>Aquí va Activities</div>}
+                            <Row className='center readMore'>
+                                <Col m={12} s={12}>
+                                    <Button onClick={viewSwitch} className='light-blue accent-4'>
+                                        {this.state.viewMore ? 'View Less' : 'View More'}
+                                    </Button>                                
+                                </Col>
                             </Row>
                         </Col>
                     </Row>
