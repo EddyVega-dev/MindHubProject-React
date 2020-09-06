@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Row, Col, Icon, Button} from 'react-materialize'
 import '../styles/itinerary.css'
+import Activities from './Activities'
 
 class Itinerary extends Component {
     
@@ -8,8 +9,7 @@ class Itinerary extends Component {
         viewMore: false,
     }
 
-    render() {
-
+    render() {       
 
         const viewPrice = (cantPrice) => {
             if (cantPrice === 0) return <> </>
@@ -47,23 +47,20 @@ class Itinerary extends Component {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col m={2} s={2}>
-                                    <p>Hashtag:</p> 
-                                </Col>
                                 {this.props.itineraryCity.hashtag.map((tag, index) =>
-                                    <Col key={index} m={3} s={3}> 
+                                    <Col key={index} m={4} s={4}> 
                                         <p className='center'>#{tag}</p>
                                     </Col>
                                 )}                                                     
                             </Row>
-                            {this.state.viewMore && <div>Aquí va Activities</div>}
-                            <Row className='center readMore'>
-                                <Col m={12} s={12}>
-                                    <Button onClick={viewSwitch} className='light-blue accent-4'>
-                                        {this.state.viewMore ? 'View Less' : 'View More'}
-                                    </Button>                                
-                                </Col>
-                            </Row>
+                        </Col>
+                    </Row>
+                    {this.state.viewMore && <Activities idItinerary={this.props.idItinerary}/>}
+                    <Row className='center readMore'>
+                        <Col m={12} s={12}>
+                            <Button onClick={viewSwitch} className='light-blue accent-4'>
+                                {this.state.viewMore ? 'View Less' : 'View More'}
+                            </Button>                                
                         </Col>
                     </Row>
                 </div>

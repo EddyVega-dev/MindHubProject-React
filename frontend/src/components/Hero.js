@@ -3,10 +3,16 @@ import {Row} from 'react-materialize'
 import '../styles/hero.css'
 import {Link} from 'react-router-dom'
 import AllCities from '../assets/images/AllCities.png'
+import { connect } from 'react-redux'
+import citiesActions from '../redux/actions/citiesAction'
 
 class Hero extends Component {
+
+    componentDidMount(){
+        this.props.getInfo()
+    }
+
     render() {
-        //process.env.PUBLIC_URL+"/next.png"
         return (
             <>
                 <div className="container section hero">
@@ -20,4 +26,14 @@ class Hero extends Component {
     }
 }
 
-export default Hero
+const mapStateToProps = state => {
+    return {
+        response: state.cities,
+    }
+}
+
+const mapDispatchToProps = {
+    getInfo: citiesActions.getInfo,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hero)

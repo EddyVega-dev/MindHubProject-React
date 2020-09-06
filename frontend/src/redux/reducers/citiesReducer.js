@@ -2,8 +2,7 @@ const initialState = {
     cities: [],
     citiesFiltered: [],
     itinerariesCity: [],
-    city: {},
-   
+    activities: [],
 }
 
 const citiesReducer = (state = initialState, action) => {
@@ -22,16 +21,18 @@ const citiesReducer = (state = initialState, action) => {
                 citiesFiltered: cityFiltered,
             }
 
-        case 'GETCITY':
-            return{
-                ...state,
-                city: action.payload,
-            }
         case 'GETITINERARY':
             return{
                 ...state,
-                itinerariesCity: action.payload
+                itinerariesCity: action.payload,
             }
+
+        case 'GETACTIVITIES':
+            return{
+                ...state,
+                activities: action.payload,
+            }
+
         default:
             return state
     }

@@ -8,16 +8,20 @@ import citiesActions from '../redux/actions/citiesAction'
 
 class Itineraries extends Component {
 
+    state = {
+        city: {},
+    }
+
     componentDidMount() {
         const searchIdCity = this.props.match.params.idCity
-        this.props.getCity(searchIdCity)
         this.props.getItinerary(searchIdCity)
+        this.setState({city: this.props.response.cities.filter(city => city._id === searchIdCity)[0]})
     }
     
     render() {
 
         const styleItinerary = {
-            backgroundImage: `url(${this.props.response.city.image})`,
+            backgroundImage: `url(${this.state.city.image})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPositionY: '50%',
@@ -30,7 +34,7 @@ class Itineraries extends Component {
             <>
                 <div className='blue-grey lighten-3'>
                     <div style={styleItinerary} className=' section center valign-center'>
-                        <p className='nameItinerary responsiveText'>Itinerary {this.props.response.city.city}, {this.props.response.city.country}</p>
+                       {<p className='nameItinerary responsiveText'>Itinerary {this.state.city.city}, {this.state.city.country}</p>}
                     </div>
 
                     <div className='itinerariesContainer'>
@@ -39,7 +43,7 @@ class Itineraries extends Component {
                             <Row>
                                 {(this.props.response.itinerariesCity.length !== 0) ? this.props.response.itinerariesCity.map( (itinerary , index) => 
                                     <Col key={index} m={12} s={12}>
-                                        <Itinerary itineraryCity={itinerary}/>
+                                        <Itinerary itineraryCity={itinerary} idItinerary={itinerary._id}/>
                                     </Col>
                                 ) : <div className='section blue-grey itineraryContent'>
                                         <h1 className='center responsiveText titleItinerary'>
@@ -71,7 +75,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    getCity: citiesActions.getCity,
     getItinerary: citiesActions.getItinerary,
 }
 

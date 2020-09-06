@@ -1,12 +1,12 @@
 const Itinerary = require('../models/Itinerary')
 
 const ItineraryController = {
-    getListItinerary: async (req, res) => {
-        const listItinerary = await Itinerary.find()
+    getListItineraries: async (req, res) => {
+        const listItineraries = await Itinerary.find()
 
         res.json({
             success: true,
-            cities: listItinerary,
+            cities: listItineraries,
         })
     },
 

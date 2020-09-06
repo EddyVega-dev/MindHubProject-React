@@ -21,17 +21,6 @@ const citiesActions = {
         }
     },
 
-    getCity: searchIdCity => {
-        return async(dispatch, getState) => {
-            const response = await Axios.get(`http://127.0.0.1:4000/api/cities/${searchIdCity}`)
-            const city = response.data.searchCity
-            dispatch({
-                type: 'GETCITY',
-                payload: city,
-            })
-        }
-    },
-
     getItinerary: searchIdCity => {
         return async(dispacth, getState) => {
             const responseItinerary = await Axios.get(`http://127.0.0.1:4000/api/itineraries/${searchIdCity}`)
@@ -39,6 +28,17 @@ const citiesActions = {
             dispacth({
                 type: 'GETITINERARY',
                 payload: itineraryCity,
+            })
+        }
+    },
+
+    getActivities: () => {
+        return async(dispacth, getState) => {
+            const responseActivity = await Axios.get(`http://127.0.0.1:4000/api/activities`)
+            const activityItineraries = responseActivity.data.activities
+            dispacth({
+                type: 'GETACTIVITIES',
+                payload:activityItineraries,
             })
         }
     },

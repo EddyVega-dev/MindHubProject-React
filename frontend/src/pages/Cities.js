@@ -8,7 +8,7 @@ import citiesActions from '../redux/actions/citiesAction'
 class Cities extends Component {
 
     componentDidMount(){
-        this.props.getInfo()
+        this.props.getActivities()
     }
 
     captureCity = e => {
@@ -16,6 +16,7 @@ class Cities extends Component {
         this.props.getCityFiltered(cityDesired)
     }
 
+    
     render() {
         return (
             <>
@@ -31,8 +32,8 @@ class Cities extends Component {
                         />
                     </Row>
                 </div>
-                <div className='citiesContainer'>
-                    <div className='container'>
+                <div className='container'>
+                    <div className='citiesContainer'>
                         <Row>
                         {(this.props.response.citiesFiltered.length !== 0) ? this.props.response.citiesFiltered.map((city, index) => 
                             <Col key={index} m={4} s={12}>
@@ -57,8 +58,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    getInfo: citiesActions.getInfo,
     getCityFiltered: citiesActions.getCityFiltered,
+    getActivities: citiesActions.getActivities,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cities)
