@@ -39,6 +39,14 @@ const ActivitiesController = {
             })
         })
     },
-}
+
+    getActivity: async (req, res) => {
+        const searchActivity = await Activity.find({itineraryId: req.params.idItinerary})
+        res.json({
+            success: true,
+            searchActivity: searchActivity, 
+        })
+    }
+} 
 
 module.exports = ActivitiesController

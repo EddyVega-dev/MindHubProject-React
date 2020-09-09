@@ -20,11 +20,11 @@ class Menu extends Component {
                                     }}
                                     trigger={<img className='login' src={process.env.PUBLIC_URL+"/login.png"} alt='login'/>}
                                 >
-                                        <Link to='/'>
+                                        <Link to='/signin'>
                                             Login
                                         </Link>
                                         <Divider />
-                                        <Link to='/'>
+                                        <Link to='/signup'>
                                             Register
                                         </Link>
                                 </Dropdown>

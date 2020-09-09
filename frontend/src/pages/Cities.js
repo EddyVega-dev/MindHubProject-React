@@ -3,7 +3,7 @@ import {TextInput, Row, Col} from 'react-materialize'
 import CardM from '../components/CardM'
 import '../styles/cities.css'
 import { connect } from 'react-redux'
-import citiesActions from '../redux/actions/citiesAction'
+import citiesAction from '../redux/actions/citiesAction'
 
 class Cities extends Component {
 
@@ -58,8 +58,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    getCityFiltered: citiesActions.getCityFiltered,
-    getActivities: citiesActions.getActivities,
+    getCityFiltered: citiesAction.getCityFiltered,
+    getActivities: citiesAction.getActivities,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cities)

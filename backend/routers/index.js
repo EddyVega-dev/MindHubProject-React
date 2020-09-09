@@ -1,25 +1,36 @@
 const express = require('express')
-const routes = express.Router()
+const router = express.Router()
 const CitiesController = require('../controller/CitiesController')
 const ItinerariesController = require('../controller/ItinerariesController')
 const ActivitiesController = require('../controller/ActivitiesController')
+const UserController = require('../controller/UserController')
+const User = require('../models/User')
 
-routes.route('/cities')
+router.route('/cities')
 .get(CitiesController.getListCities)
 .post(CitiesController.newCity)
 
-routes.route('/cities/:idCity')
+router.route('/cities/:idCity')
 .get(CitiesController.getCity)
 
-routes.route('/itineraries')
+router.route('/itineraries')
 .get(ItinerariesController.getListItineraries)
 .post(ItinerariesController.newItinerary)
 
-routes.route('/itineraries/:idCity')
+router.route('/itineraries/:idCity')
 .get(ItinerariesController.getItineraryCity)
 
-routes.route('/activities')
+router.route('/activities')
 .get(ActivitiesController.getListActivities)
 .post(ActivitiesController.newActivity) 
 
-module.exports = routes
+router.route('/activities/:idItinerary')
+.get(ActivitiesController.getActivity)
+
+router.route('/user')
+.post(UserController.validateData, UserController.newUser)
+
+router.route('/login')
+.post(UserController.loginUser)
+
+module.exports = router
