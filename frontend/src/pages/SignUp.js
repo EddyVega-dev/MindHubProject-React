@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import {TextInput, Select, Button, Icon} from 'react-materialize'
+import {TextInput, Select, Button, Icon, Row, Col} from 'react-materialize'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import userAction from '../redux/actions/userAction'
+import '../styles/sign.css'
+import Swal from 'sweetalert2'
 
 const SignUp = (props) => {
 
@@ -20,30 +23,45 @@ const SignUp = (props) => {
 
     const isEmpty = (property) => newUser[property].length === 0
     
-
     const sendInfo = async e => {
         e.preventDefault()
         let empty = false
 
         properties.map(property => {if(isEmpty(property)) empty = true} )
 
-        if(empty) alert('empty fields')
-        else {
-            const response = await props.newUser(newUser)
-            /* if(response.data.success) props.history.push('/') */
+        if(empty) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Incorrect',
+                text: 'empty fields',
+            })
+        }else {
+            await props.newUser(newUser)
         }
     }
 
+    useEffect(() => {
+        if(props.response.token){
+            Swal.fire({
+                icon: 'success',
+                title: 'Great',
+                text: 'Gracias por inscribirte capo!!',
+                footer: 'Disfruta de nuestro servicio'
+            })
+            props.history.push('/')
+        }
+    }, [props.response])
+
     return (
         <>
-            <div className='container center'>
-                <h1>Create Acount</h1>
-                <TextInput id="urlPic" label="Your Pic URL" onChange={readInput}/>
-                <TextInput id="userName" label="Username" onChange={readInput}/>
-                <TextInput id="password" label="Password" password onChange={readInput}/>
-                <TextInput email id="email" label="Email" validate onChange={readInput}/>
-                <TextInput id="firstName" label="FirstName" onChange={readInput}/>
-                <TextInput id="lastName" label="LastName" onChange={readInput}/>
+            <div className='containerSign center'>
+                <h1 className='center responsiveText'>Create Acount</h1>
+                <TextInput className='center' id="urlPic" label="Your Pic URL" onChange={readInput}/>
+                <TextInput className='center' id="userName" label="Username" onChange={readInput}/>
+                <TextInput className='center' id="password" label="Password" password onChange={readInput}/>
+                <TextInput className='center' email id="email" label="Email" validate onChange={readInput}/>
+                <TextInput className='center' id="firstName" label="FirstName" onChange={readInput}/>
+                <TextInput className='center' id="lastName" label="LastName" onChange={readInput}/>
                 <Select
                 id="country"
                 multiple={false}
@@ -77,25 +95,42 @@ const SignUp = (props) => {
                     return(<option key={index} value={country.value}>{country.country}</option>)
                 })}
                 </Select>
-                <Button
-                    node="button"
-                    type="submit"
-                    waves="light"
-                    onClick={sendInfo}
-                    >
-                    Submit
-                    <Icon right>
-                        send
-                    </Icon>
-                </Button>
+                <Row>
+                    <Col m={12} s={12}>
+                        <Button
+                            node="button"
+                            type="submit"
+                            waves="light"
+                            onClick={sendInfo}
+                            >
+                            Submit
+                            <Icon right>
+                                send
+                            </Icon>
+                        </Button>                    
+                    </Col>
+                    <Col m={12} s={12}>
+                        <Button
+                            node="button"
+                            waves="light"
+                        >
+                            <Link className='link' to='/signip'>SingIn</Link>
+                        </Button>
+                    </Col>
+                </Row>
             </div>
         </>
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        response: state.user,
+    }
+}
 
 const mapDispatchToProps = {
     newUser: userAction.newUser
 }
 
-export default connect(null, mapDispatchToProps)(SignUp)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

@@ -1,4 +1,4 @@
-const { default: Axios } = require("axios")
+import Axios from 'axios'
 
 const citiesActions = {
     getInfo: () => {
@@ -22,10 +22,10 @@ const citiesActions = {
     },
 
     getItinerary: searchIdCity => {
-        return async(dispacth, getState) => {
+        return async(dispatch, getState) => {
             const responseItinerary = await Axios.get(`http://127.0.0.1:4000/api/itineraries/${searchIdCity}`)
             const itineraryCity = responseItinerary.data.itineraryCity
-            dispacth({
+            dispatch({
                 type: 'GETITINERARY',
                 payload: itineraryCity,
             })
@@ -33,10 +33,10 @@ const citiesActions = {
     },
 
     getActivities: () => {
-        return async(dispacth, getState) => {
+        return async(dispatch, getState) => {
             const responseActivity = await Axios.get(`http://127.0.0.1:4000/api/activities`)
             const activityItineraries = responseActivity.data.activities
-            dispacth({
+            dispatch({
                 type: 'GETACTIVITIES',
                 payload:activityItineraries,
             })

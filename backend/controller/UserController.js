@@ -1,12 +1,11 @@
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs')
 const Joi = require('@hapi/joi')
+const jwt = require('jsonwebtoken')
 
 const UserController = {
     newUser: async(req, res) => {
         const {urlPic, userName, firstName, lastName, email, password, country} = req.body
-
-        //validación
 
         //Hash
         const passwordHash = bcryptjs.hashSync(password, 10)
@@ -26,16 +25,20 @@ const UserController = {
             
             var user = await newUser.save()
 
-            res.json({
-                success: true,
-                user: user,
+            jwt.sign({...newUser}, process.env.SECRETORKEY, {}, (error, token) => {
+                if(error) {
+                    res.json({success: false, error: 'error Token'})
+                }
+                else{
+                    res.json({success:true, token, urlPic: newUser.urlPic})
+                }
             })
         }
     },
 
     validateData: (req, res, next) => {
         const schema = Joi.object({
-            urlPic: Joi.string().trim().alphanum().min(0).max(100).required(),
+            urlPic: Joi.string().required(),
             userName: Joi.string().trim().alphanum().min(5).max(100).required(),
             firstName: Joi.string().trim().alphanum().min(5).max(100).required(),
             lastName: Joi.string().trim().alphanum().min(5).max(100).required(),
@@ -63,17 +66,31 @@ const UserController = {
         const userExists = await User.findOne({userName})
 
         if(!userExists){
-            res.json({success:false, mensage: `${userName} exists`})
+            res.json({success:false, mensage: `${userName} not exists`})
         } else{
             const passwordHash = bcryptjs.compareSync(password, userExists.password)
             if(!passwordHash){
                 res.json({success:false, mensage: 'incorrect username or password'})
             }else{
-                res.json({success:true, user: userExists})
+                //generar token
+                jwt.sign({...userExists}, process.env.SECRETORKEY, {}, (error, token) => {
+                    if(error) {
+                        res.json({success: false, error: 'error Token'})
+                    }
+                    else{
+                        res.json({success:true, token, urlPic: userExists.urlPic})
+                    }
+                })
             }
         }
+    },
 
+    veriftoken: (req, res) => {
+        console.log(req)
+        const {urlPic} = req.user
+        res.json({success: true, urlPic})
     }
+
 }
 
 module.exports = UserController

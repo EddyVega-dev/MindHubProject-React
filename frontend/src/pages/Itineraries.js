@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Row, Icon} from "react-materialize";
+import { Col, Row, Icon, Preloader} from "react-materialize";
 import Itinerary from '../components/Itinerary'
 import '../styles/itineraries.css'
 import {Link} from 'react-router-dom'
@@ -10,12 +10,16 @@ class Itineraries extends Component {
 
     state = {
         city: {},
+        loading: true,
     }
 
     componentDidMount() {
         const searchIdCity = this.props.match.params.idCity
         this.props.getItinerary(searchIdCity)
-        this.setState({city: this.props.response.cities.filter(city => city._id === searchIdCity)[0]})
+        setTimeout(() => {
+            this.setState({city: this.props.response.cities.filter(city => city._id === searchIdCity)[0]})
+            this.setState({loading:false})
+        }, 1500)
     }
     
     render() {
@@ -39,9 +43,10 @@ class Itineraries extends Component {
 
                     <div className='itinerariesContainer'>
                         <div className="container">
-
+                            <div className = 'responsiveText'>Aviable MYtineraries</div>
                             <Row>
-                                {(this.props.response.itinerariesCity.length !== 0) ? this.props.response.itinerariesCity.map( (itinerary , index) => 
+                                { (this.state.loading) ? <div className='center'><Preloader active color="blue" flashing={false} size="big" /></div>
+                                :(this.props.response.itinerariesCity.length !== 0) ? this.props.response.itinerariesCity.map( (itinerary , index) => 
                                     <Col key={index} m={12} s={12}>
                                         <Itinerary itineraryCity={itinerary} idItinerary={itinerary._id}/>
                                     </Col>

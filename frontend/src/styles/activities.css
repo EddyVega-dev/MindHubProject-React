@@ -1,0 +1,5 @@
+.wrapperActivities{
+    display: flex;
+    max-height: auto;
+    overflow-x: auto;
+}

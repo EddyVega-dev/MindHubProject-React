@@ -4,7 +4,7 @@ const CitiesController = require('../controller/CitiesController')
 const ItinerariesController = require('../controller/ItinerariesController')
 const ActivitiesController = require('../controller/ActivitiesController')
 const UserController = require('../controller/UserController')
-const User = require('../models/User')
+/* const passport = require('../config/passport') */
 
 router.route('/cities')
 .get(CitiesController.getListCities)
@@ -28,9 +28,12 @@ router.route('/activities/:idItinerary')
 .get(ActivitiesController.getActivity)
 
 router.route('/user')
-.post(UserController.validateData, UserController.newUser)
+.post(/* UserController.validateData, */ UserController.newUser)
 
 router.route('/login')
 .post(UserController.loginUser)
-
+/* 
+router.route('/veriftoken')
+.get(passport.authenticate('jwt', {session: false}), UserController.veriftoken)
+ */
 module.exports = router

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Row, Col, Icon, Button} from 'react-materialize'
 import '../styles/itinerary.css'
 import Activities from './Activities'
+import Comments from './Comments'
 
 class Itinerary extends Component {
     
@@ -55,7 +56,13 @@ class Itinerary extends Component {
                             </Row>
                         </Col>
                     </Row>
-                    {this.state.viewMore && <Activities idItinerary={this.props.idItinerary}/>}
+                    {this.state.viewMore && 
+                        <>
+                            <h1 className = 'center responsiveText'>Activities</h1>
+                            <Activities idItinerary={this.props.idItinerary}/>
+                            <Comments/>
+                        </>
+                    }
                     <Row className='center readMore'>
                         <Col m={12} s={12}>
                             <Button onClick={viewSwitch} className='light-blue accent-4'>

@@ -1,16 +1,28 @@
 const initialState = {
-
+    urlPic: '',
+    token: null,
 }
 
 const userReducer = (state = initialState, action) => {
-    switch (action.types) {
-        case 'LOGUSER_INTO_APP':
+    switch (action.type) {
+        case 'LOG_USER_INTO_APP':
+            localStorage.setItem('token', action.payload.token)
             return {
-                ...state
-
+                ...state,
+                urlPic: action.payload.urlPic,
+                token: action.payload.token,
             }
 
-            default:
+        case 'UNLOG_USER_INTO_APP':
+            localStorage.clear()
+            return {
+                ...state,
+                ... initialState,
+            }
+
+        default:
             return state
     }
 }
+
+export default userReducer

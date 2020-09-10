@@ -1,5 +1,5 @@
 import citiesReducer from "./citiesReducer"
-import { userReducer } from "./userReducer"
+import userReducer  from "./userReducer"
 
 const { combineReducers } = require("redux")
 

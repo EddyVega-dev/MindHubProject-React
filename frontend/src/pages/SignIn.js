@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import '../styles/login.css'
 import { connect } from 'react-redux'
 import userAction from '../redux/actions/userAction'
+import '../styles/sign.css'
+import Swal from 'sweetalert2'
 
 const SignIn = (props) => {
 
@@ -16,28 +18,35 @@ const SignIn = (props) => {
             ...user,
             [property]: value
         })
-    }
+    }        
 
     const sendInfo = async e => {
         e.preventDefault()
         if(user.userName === '' || user.password === '') alert('empty fields')
         else{
             const userLogin = {userName: user.userName, password: user.password}
-            props.loginUser(userLogin)
-            props.history.push('/')
+            await props.loginUser(userLogin)
         }
     }
 
     useEffect(() => {
-
-    }, [])
+        if(props.response.token) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Welcome',
+                text: 'Bienvenido nuevamente',
+                footer: 'Disfruta de nuestro servicio'
+            })
+            props.history.push('/')
+        }
+    }, [props.response])
 
     return (
         <>
-            <div className='container center'>
-                <h1 className='center'>LogIn</h1>
-                <TextInput id="userName" label="Username" onChange={readInput}/>
-                <TextInput id="password" label="Password" password onChange={readInput}/>
+            <div className='containerSign center'>
+                <h1 className='center responsiveText'>LogIn</h1>
+                <TextInput className='center' id="userName" label="Username" onChange={readInput}/>
+                <TextInput className='center' id="password" label="Password" password onChange={readInput}/>
                 <Button
                     node="button"
                     style={{
@@ -59,8 +68,14 @@ const SignIn = (props) => {
     );
 }
 
+const mapStateToProps = state => {
+    return {
+        response: state.user,
+    }
+}
+
 const mapDispatchToProps = {
     loginUser: userAction.loginUser
 }
 
-export default connect(null, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
